@@ -1,0 +1,255 @@
+.Color-Box1{
+  height: 100px;
+  background-color: rgb(162, 108, 179);
+  color: white;
+  font-style: oblique;
+  font-size: larger;
+  border-radius: 15px;
+ background-image: linear-gradient(to right, rgb(2, 50, 72), #b7b7d6);
+}
+   
+ .Total
+ {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 22%;
+  color:#00ccff;
+ }
+
+ .Optional
+ {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10%;
+  color:#00ccff;
+ }
+
+ .Leave
+{
+  margin-left: 8%;
+  background-color: #00ccff;
+  padding: .5px 10px;
+}
+
+ .HolidaysTaken
+ {
+  background-color: #00ccff;
+  padding: .5px 10px;
+ }
+ 
+ .LeavesTaken
+ {
+  margin-left: 10%;
+  background-color: #00ccff;
+  padding: .5px 10px;
+ 
+ }
+
+ .Balance
+ {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color:#00ccff;
+ }
+
+ .CreditedLeaves
+ {
+  color:white;
+  font-size:100%;
+  font-weight: bold;
+ }
+
+
+ .ChildDiv
+ {
+  background-image: linear-gradient(to right, rgb(47, 136, 238), rgb(47, 146, 226));
+ }
+
+
+.Color-Box2{
+  height: 150px;
+  background-color: rgb(89, 230, 159);
+  
+  color: hwb(0 92% 7%);
+  font-style: oblique;
+  font-size: larger;
+  border-radius: 15px;
+  background-image: linear-gradient(to right,rgb(9, 97, 197), rgb(9, 100, 175));
+}
+ .numbers{
+  font-size: 1rem;
+  color: hsl(0, 36%, 95%);
+  font-weight: 750;
+  padding-left: 10%;
+  
+} 
+
+/*
+.numbers{
+  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+  padding-top: 0%;  
+  padding-bottom: 2%;
+} */  
+
+.box{
+margin-left: 50px;
+}
+/* .words{
+  font-size: 2rem;
+  color: white;
+  font-weight: 750;
+  font-size: x-large;
+}    
+
+
+ .bg_image
+{
+  background-image: url(/leavesite/resource/1680675240000/HRMSGetOTP?);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+} 
+
+
+/*  Desktop and Laptops */
+@media(min-width:1024px){
+  .bg_image{
+    background-image: url(/leavesite/resource/1680675240000/HRMSGetOTP?);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 84rem;
+    height:45rem;
+  }
+}
+
+/* mobiles,Phones */
+@media(max-width:768px){
+  .bg_image{
+    background-image: url(/leavesite/resource/1680675240000/HRMSMobileBackgroundImg?);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40rem;
+    height: 80rem;
+  }
+}
+
+/* Tablets and ipads */
+@media(min-width:768px) and (max-width:1023px){
+  .bg_image{
+    background-image: url(/leavesite/resource/1680675240000/HRMSMobileBackgroundImg?);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40rem;
+    height: 80rem;
+  }
+}
+ 
+ .mandatoryStar
+ {
+  color: red;
+ }
+
+
+.EnterEmail
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  color: white;
+}
+
+.EnterOTP
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  color: white;
+  margin-left:4%;
+}
+
+.bg-img2
+{
+  background-image: url(/leavesite/resource/1680675240000/HRMSloginPortal?);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  width: 84rem;
+  height:41rem;
+}
+
+.Aligment
+{
+margin-top:-20%;
+margin-left:19%;
+}
+
+.OverviewText
+{
+font-family: Arial, Helvetica, sans-serif;
+font-size: x-large;
+margin-left: 4.5%;
+margin-top: 3%;
+color: rgb(6, 67, 143);
+
+}
+
+.OverviewText.slds-align_absolute-center .slds-grid{
+padding-top: 2px;
+}
+
+.leaveBox
+{
+margin-top: 120px;
+}
+
+.LeaveApplication
+{
+font-family: Arial, Helvetica, sans-serif;
+font-size: x-large;
+color: rgb(6, 67, 143);
+margin-left: 1%;
+}
+
+.slds-has-button-menu{
+
+  background-color: #000!important;
+  color:#fff;
+
+}
+
+ .MainTitle
+ {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:xx-large;
+  color: #fff;
+  margin-left: 3%; 
+ }
+
+ .LoginButton {
+  font-style: rectangle;
+  font-family: Arial, Helvetica, sans-serif;
+	--sds-c-button-brand-color-background: #00ffff;
+    --sds-c-button-brand-text-color: #090e11;
+}
+
+ .input
+ {
+  --slds-c-input-text-color: black;
+
+  --slds-c-input-color-background: white;
+
+
+ /*-webkit-text-fill-color: White;*/
+ }
+
+ .Approvals
+ {
+  margin-top: -34%;
+ }
+ .slds-nav-vertical__action{
+  color:white !important;
+ }

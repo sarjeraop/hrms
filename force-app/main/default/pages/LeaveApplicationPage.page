@@ -1,0 +1,22 @@
+<apex:page showHeader="false">
+   
+   <apex:includeLightning />
+    
+    <div id="LightningApp">
+        <!-- Lightning Component will be included here. -->
+    </div>
+
+     <script>
+         $Lightning.use(
+             "c:LeaveApplicationApp", 
+             function() { 
+                 $Lightning.createComponent(
+                     "c:employeeUtility", 
+                     {}, 
+                     "LightningApp" 
+                 );
+             }
+         );
+     </script>
+
+</apex:page>

@@ -1,0 +1,352 @@
+<template>
+    
+    <template if:true={showVerificationPage}>
+  
+<div class="bg_image slds-size_12-of-12">
+    <div class="slds-grid  slds-wrap">
+        <div class="slds-size_3-of-5"></div>
+    <div class="slds-size_2-of-5 slds-grid_vertical-align-center" style="padding-top:15%">
+<template if:true={showEmailField}>
+    <div class="MainTitle">
+        Human Resource </br>
+        Management System
+    </div>    
+   <div class="slds-m-around_medium"> 
+    <div class="EnterEmail"><span class="mandatoryStar">*</span> Enter Email</div>
+    <lightning-input
+                    
+                    type="email"
+                 
+                    placeholder="username@deciphercloud.com"
+                    class="validateEmail input"
+                  
+                  
+                    style="width: 350px;"
+                    >
+    </lightning-input>
+    </div>
+</template>
+
+<template if:true={getOTP}>
+    <div class=" slds-m-around_large" style="margin-left:27%;"> 
+        <lightning-button
+            variant="brand"
+            class="LoginButton"
+            label="GetOTP"
+            onclick={handleEmail}>
+        </lightning-button>
+      
+    </div>
+</template>
+</div>
+</div>
+</div>
+</template>
+
+
+<template if:true={showSecondPage}>
+    <div class=" bg_image slds-size_12-of-12">
+        <div class="slds-grid  slds-wrap">
+            <div class="slds-size_3-of-5"></div>
+            <div class="slds-size_2-of-5 slds-grid_vertical-align-center" style="padding-top:13%">
+<template if:true={showReadOnlyEmail}>
+    <div class="MainTitle">
+        Human Resource </br>
+        Management System
+    </div>
+    <div class="slds-m-around_medium">
+        <div class="EnterEmail"><span class="mandatoryStar">*</span> Enter Email</div>
+        <lightning-input type="email" name="input7"  value={email} disabled="true" style="width: 350px; color:#161414;"></lightning-input>
+    </div>
+</template>
+
+<template if:true={showOtpField}>
+    <div class="EnterOTP"> Enter OTP</div>
+  <lightning-input type="string" class="validateOtp slds-m-around_medium"   style="width: 350px;"></lightning-input>
+  <div style="margin-left:27%;">
+  <lightning-button
+      variant="brand"
+      class="LoginButton"
+      label="Login"
+      onclick={handleOtpValidation}
+  >
+  </lightning-button>
+  </div>
+  </template>
+</div>
+</div>
+</div>
+</template>
+    
+    <!--
+    <aura:component controller="SampleAuraController" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute type="Account[]" name="acctList"/>
+    <aura:attribute name="gridColumns" type="List" />
+    <aura:attribute name="gridData" type="Object" />
+    <aura:attribute name="gridExpandedRows" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-m-around_xx-large">
+        <lightning:treeGrid aura:id="accTree" columns="{!v.gridColumns}" data="{!v.gridData}" keyField="Id"/>
+    </div>
+    </aura:component>
+    -->
+    <template if:true={ShowLeavePortalImage}>
+    <div class="slds-grid  slds-wrap bg-img2">
+            <template if:true={showPortal}>
+                
+             <div  style="padding-top:9%; color:white; width:15%">
+                    <lightning-vertical-navigation selected-item="dashboard">
+                        <lightning-vertical-navigation-section label="Leave Reporting">
+                            <lightning-vertical-navigation-item label="Home" class="colorClass" onclick={handleDashboard}></lightning-vertical-navigation-item>
+                            <lightning-vertical-navigation-item label="Apply For Leave" style="color:white;" onclick={handleApplyLeave}></lightning-vertical-navigation-item>
+                        </lightning-vertical-navigation-section>
+                    </lightning-vertical-navigation>
+                </div> 
+            
+            </template>
+    
+            
+    
+            <template if:true={applyForLeave}>
+                <div class="slds-col  slds-size_9-of-12  slds-float_right box leaveBox">
+                    
+            <div class="LeaveApplication">
+                Leave Application
+            </div>
+    
+                <lightning-combobox 
+                                        name="Leave Type"
+                                        label="Leave Type" 
+                                        value={leaveselectedLeaveType}
+                                        placeholder="Select Leave Type"
+                                        options={options}
+                                        class="leaveType slds-m-around_medium"
+                                        onchange={handleChange} style="width:42rem"
+                                        required="true">
+                    </lightning-combobox>
+                
+                    <template if:true={showHalfDay}>
+                        
+                        <lightning-combobox 
+                        name="Half Day Type"
+                        label="Half Day Type" 
+                        value={halfDayType}
+                        placeholder="Select Half Day Type"
+                        class="slds-m-around_medium"
+                        options={halfDayOptions}
+                        onchange={handleHalfDayType} style="width:42rem"
+                        required="true">
+                        </lightning-combobox>
+                    </template>
+    
+                <div class="slds-grid  slds-wrap ">
+                <lightning-input type="date" class="startDate slds-m-around_medium" label="Start Date" value={startDateValue} style="width:20rem"  required="true"></lightning-input>
+                <lightning-input type="date" class="endtDate slds-m-around_medium" label="End Date" value={endDateValue} style="width:20rem"  required="true"></lightning-input>
+            </div>
+                <lightning-input type="text" class="description slds-m-around_medium" label="Description" value={description} style="width:42rem" required="true"></lightning-input>
+            
+            
+            
+                <div style="margin-left: 2%;">
+                <lightning-button
+                    variant="brand"
+                    label="Proceed"
+                    onclick={handleLeaveApplication}
+                >
+                </lightning-button>
+                </div>
+            </div>
+                </template>
+    
+                <template if:true={showAppliedLeaves}>              
+                    <div class="slds-col  slds-size_9-of-12 " style="padding-top: 10%;width:70%;margin-left:5%" >
+                        <div class="LeaveApplication">
+                            Leave Application
+                        </div>
+                        <div class="slds-table_striped">
+                    <lightning-datatable
+                            key-field="Id"
+                            data={leavesData}
+                            columns={columns}
+                            hide-checkbox-column="true"
+                            
+                            onrowaction={handleRowAction}
+                            >
+                    </lightning-datatable>
+                    </div>
+                    <div class="slds-button-group" role="group">
+                        <lightning-button
+                            variant="brand"
+                            label="Confirm"
+                            onclick={handleLeaveConfirmation}
+                            class="check slds-m-around_medium slds-align_absolute-center" 
+                        >
+                        </lightning-button>
+                        <lightning-button
+                                variant="brand"
+                                label="Back"
+                                onclick={handleBack}
+                                class="check slds-m-around_medium slds-align_absolute-center" 
+                            >
+                            </lightning-button>
+                        </div> 
+                     
+                </div>
+                
+                </template>
+            
+                <template if:true={showDashBoard}>
+    
+                    <div class="OverviewText">
+                        <h4>
+                            Overview
+                        </h4>
+                    </div>
+    <div class="Aligment">
+        <div class="slds-grid">
+     
+            <div style="width:100%;height:20%" >
+            <div class ="Color-Box2 color">
+            <div>
+                <div class="ChildDiv" style="width:100%;">
+                    <span  class="CreditedLeaves">Credited Leaves</span> </br>
+
+                <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-align_absolute-center">
+                    <span>Total Leaves Credited      {leaveCredited}</span>&nbsp;&nbsp;
+                     </div>
+
+                     <div class="slds-col slds-align_absolute-center">
+                    <span>Optional Leaves Credited     {optionalHolidaysCredited}</span>&nbsp;&nbsp;                 
+                    </div>
+
+                    <div class="slds-col slds-align_absolute-center">
+                    <span>Comp Off Leaves Credited     {compOffLeavesCredited}</span>&nbsp;&nbsp;
+                    </div>
+
+                    <div class="slds-col">
+                    <span>Casual Leaves Credited     {casualLeavesCredited}</span>&nbsp;&nbsp;   
+                    </div>
+                </div>            
+                </div>
+                <div class="slds-grid">
+                <div  class="slds-col">
+                   <span class="Total">Total</span></br>
+                    <span class="LeavesTaken" style="color:black;font-size:70%;">Leaves Taken <span class="leavesDebited" style="color:white;font-size:60px;font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;{leavesDebited}</span></span>
+                </div>
+                
+                <div  class="slds-col">
+                    <span class="Optional">Optional</span></br>
+                    <span class="HolidaysTaken" style="color:black;font-size:70%;">Holidays Taken<span class="optionalHolidaysTaken" style="color:white;font-size:60px;font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;{optionalHolidaysTaken}</span></span>
+                    
+
+                </div>
+               
+                <div class="slds-col">
+                    <span class="Balance">Balance </span></br>
+                    <span class="Leave" style="color:black;font-size:70%;">Leave<span class="leaveBalance" style="color:white; font-size:60px;font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;{leaveBalance}</span></span>
+                       
+                </div>
+            </div>   
+                        
+            </div>
+            </div> 
+            </div>
+
+        </div> 
+    </div> 
+                
+                <div  class=" slds-size_10-of-12 slds-float_left  slds-table_striped" style="height:35%;padding-left:20%;margin-top:-15%;">
+                    <span>
+                            
+                            <lightning-tree-grid aura:id="accTree" 
+                                            columns={gridColumns} 
+                                            data={dataToDisplay} 
+                                            key-field="Id"
+                                            onrowaction={handleRowAction}
+                                           
+                            ></lightning-tree-grid>
+                        <template if:true={showViewAll}>
+                            <lightning-button class="slds-align_absolute-center slds-m-around_large" label="View All" variant="brand" onclick={showAllRecords}></lightning-button>
+                        </template>
+                            
+                    </span>
+            </div>
+    
+            
+    
+        
+                </template>
+            
+    </div>
+    </template>
+    
+    
+    
+    <!-- modal start -->      
+    <template if:true={showModal}>
+    
+    <!--
+        I Used SLDS for this code
+        Here is link https://www.lightningdesignsystem.com/components/modals/
+    --> 
+    
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+    <!-- modal header start -->
+    <header class="slds-modal__header">
+    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-success" title="Close" onclick={hideModalBox}>
+        <lightning-icon icon-name="utility:close"
+            alternative-text="close"
+            variant="warning"
+            
+            size="small" ></lightning-icon>
+        <span class="slds-assistive-text">Close</span>
+        </button>  
+    
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Leave</h2>
+    </header>
+    
+    <!-- modal body start -->
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    <lightning-card  class="slds-align_absolute-center slds-m-around_medium" >
+        
+        <template if:true={leave}>
+            
+                <lightning-input type="string"  clas=" slds-m-around_small " value={leaveDate}  disabled="true" label="Leave Date" style="width: 300px;"></lightning-input>
+                <lightning-input type="string"  clas=" slds-m-around_small " value={leaveType}  disabled="true" label="Leave Type" style="width: 300px;"></lightning-input>
+                <lightning-input type="string"  clas=" slds-m-around_small " value={leaveStatus}  disabled="true" label="Leave Status" style="width: 300px;"></lightning-input>
+                
+    
+                <template if:true={showFooter}>
+                    <lightning-input type="string"
+                    label="Cancellation Reason"  class="cancel slds-m-around_small " style="width: 300px;">
+                    </lightning-input>
+                    <div class="slds-m-around_medium slds-align_absolute-center">
+                        <lightning-button
+                            variant="brand"
+                            label="Cancel Leave "
+                            onclick={leaveCancel}
+                        >  
+                        </lightning-button>
+                        </div>               
+                </template>
+    
+        </template>
+        <template if:true={showLeaveApplication}>
+            
+            <lightning-input type="string"  clas=" slds-m-around_small " value={leaveApplicationName}  disabled="true" label="Application Name" style="width: 300px;"></lightning-input>
+            <lightning-input type="string"  clas=" slds-m-around_small " value={leaveApplicationStartDate}  disabled="true" label="Start Date" style="width: 300px;"></lightning-input>
+            <lightning-input type="string"  clas=" slds-m-around_small " value={leaveApplicationEndDate}  disabled="true" label="End Date" style="width: 300px;"></lightning-input>
+            <lightning-input type="string"  clas=" slds-m-around_small " value={leaveApplicationDuration}  disabled="true" label="Leave Duration" style="width: 300px;"></lightning-input>
+    
+        </template>
+        <!-- <lightning-button variant="brand" label="Cancel" title="Cancel" onclick={callCsvCancel} class="slds-m-around_small"></lightning-button>   -->
+    </lightning-card>
+    </div>
+    
+    </div>
+    </section>
+    
+    </template>
+    </template>
